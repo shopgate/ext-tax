@@ -1,0 +1,38 @@
+{
+  "version": "1",
+  "pipeline": {
+    "id": "shopgate.tax.getCheckoutTotals.v1.json",
+    "public": true,
+    "input": [
+      {"key": "checkout", "id": "10"},
+      {"key": "totals", "id": "11"}
+    ],
+    "output": [
+      {"key": "totals", "id": "11"}
+    ],
+    "steps": [
+      {
+        "type": "extension",
+        "id": "@shopgate/tax",
+        "path": "@shopgate/tax/checkout/validateGetCheckoutTotals.js",
+        "input": [
+          {"key": "checkout", "id": "10"},
+          {"key": "totals", "id": "11"}
+        ],
+        "output": []
+      },
+      {
+        "type": "extension",
+        "id": "@shopgate/tax",
+        "path": "@shopgate/tax/checkout/getTotals.js",
+        "input": [
+          {"key": "checkout", "id": "10"},
+          {"key": "totals", "id": "11"}
+        ],
+        "output": [
+          {"key": "totals", "id": "11"}
+        ]
+      }
+    ]
+  }
+}
