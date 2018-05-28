@@ -14,16 +14,6 @@ const checkoutSchema = Joi.object().keys({
   'items'
 ]).unknown(true) // other keys are allowed as well
 
-// totals schema
-const totalsSchema = Joi.array().min(1).items(
-  Joi.object().keys({
-    id: Joi.string().required(),
-    label: Joi.string().required(),
-    amount: Joi.number().integer() // -100 | 0 | 100
-  })
-)
-
 module.exports = {
-  checkoutSchema,
-  totalsSchema
+  checkoutSchema
 }

@@ -1,3 +1,4 @@
+const TaxError = require('./../errors/TaxError')
 /**
  * @typedef {Object} GetTotalsInput
  * @property {Object} checkout

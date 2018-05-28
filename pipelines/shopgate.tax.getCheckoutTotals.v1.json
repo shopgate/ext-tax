@@ -1,7 +1,7 @@
 {
   "version": "1",
   "pipeline": {
-    "id": "shopgate.tax.getCheckoutTotals.v1.json",
+    "id": "shopgate.tax.getCheckoutTotals.v1",
     "public": true,
     "input": [
       {"key": "checkout", "id": "10"},

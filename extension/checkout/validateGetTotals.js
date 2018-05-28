@@ -1,6 +1,7 @@
 const Joi = require('joi')
 const ValidationError = require('./../errors/ValidationError')
-const {checkoutSchema, totalsSchema} = require('./jsonSchema')
+const TaxError = require('./../errors/TaxError')
+const {checkoutSchema} = require('./jsonSchema')
 
 /**
  * @typedef {Object} ValidateCheckoutInput
@@ -14,12 +15,12 @@ const {checkoutSchema, totalsSchema} = require('./jsonSchema')
  * @return {Promise<undefined>}
  */
 module.exports = async (context, input) => {
-  let validationResult = Joi.validate(input.checkout, checkoutSchema)
-  if (validationResult.error) {
-    throw new ValidationError(validationResult.error.details[0].message)
+  if (!Array.isArray(input.totals)) {
+    context.log.warn(input, 'Checkout totals is malformed')
+    throw new TaxError('Checkout totals is malformed')
   }
 
-  validationResult = Joi.validate(input.totals, totalsSchema)
+  let validationResult = Joi.validate(input.checkout, checkoutSchema)
   if (validationResult.error) {
     throw new ValidationError(validationResult.error.details[0].message)
   }
