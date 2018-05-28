@@ -2,7 +2,7 @@
   "version": "1",
   "pipeline": {
     "id": "shopgate.tax.getCheckoutTotals.v1",
-    "public": true,
+    "public": false,
     "input": [
       {"key": "checkout", "id": "10"},
       {"key": "totals", "id": "11"}
@@ -14,7 +14,7 @@
       {
         "type": "extension",
         "id": "@shopgate/tax",
-        "path": "@shopgate/tax/checkout/validateGetCheckoutTotals.js",
+        "path": "@shopgate/tax/checkout/validateGetTotals.js",
         "input": [
           {"key": "checkout", "id": "10"},
           {"key": "totals", "id": "11"}

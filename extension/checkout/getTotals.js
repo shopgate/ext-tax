@@ -1,4 +1,3 @@
-const TaxError = require('./../errors/TaxError')
 /**
  * @typedef {Object} GetTotalsInput
  * @property {Object} checkout
@@ -18,13 +17,13 @@ const TaxError = require('./../errors/TaxError')
 module.exports = async (context, input) => {
   const totals = input.totals
 
-  // calculate sub total for items
-  const beforeTaxes = input.checkout.items
-    .map(item => item.unitPrice * item.quantity)
-    .reduce(
-      (sum, amount) => sum + amount,
-      0
-    )
+  const discounts = totals.find(total => total.id === 'discounts')
+  const subTotal = totals.find(total => total.id === 'subtotal')
+
+  let beforeTaxes = subTotal.amount
+  if (discounts) {
+    beforeTaxes -= discounts.amount
+  }
 
   const taxRate = 19
   const taxAmount = Math.round(beforeTaxes * taxRate / 100)
