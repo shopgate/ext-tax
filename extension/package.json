@@ -11,7 +11,9 @@
     "standard": "./node_modules/.bin/standard"
   },
   "license": "UNLICENSED",
-  "dependencies": {},
+  "dependencies": {
+    "joi": "^13.2.0"
+  },
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
