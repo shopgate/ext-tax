@@ -26,7 +26,7 @@ module.exports = async (context, input) => {
   }
 
   const taxRate = 19
-  const taxAmount = Math.round(beforeTaxes * taxRate / 100)
+  const taxAmount = Math.round(beforeTaxes * taxRate) / 100
 
   totals.push({
     id: 'tax',
