@@ -4,25 +4,23 @@
   "description": "Shopgate Connect sales tax extension",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shopgate/ext-tax"
+    "url": "https://github.com/shopgate/ext-tax.git"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha --use_strict recursive test/unit",
+    "test": "mocha --use_strict recursive test/unit",
+    "coverage": "nyc mocha --use_strict recursive test/unit",
+    "coverage-html": "nyc --reporter=html --report-dir=test/coverage mocha --use_strict recursive test/unit",
     "standard": "./node_modules/.bin/standard"
   },
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "dependencies": {
-    "joi": "^13.2.0"
+    "joi": "^13.3.0"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
+    "standard": "latest",
     "mocha": "^3.2.0",
-    "standard": "^10.0.3"
+    "mocha-jenkins-reporter": "^0.3.7",
+    "nyc": "latest"
   },
   "standard": {
     "env": [
