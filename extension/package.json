@@ -1,6 +1,6 @@
 {
   "name": "@shopgate/tax",
-  "version": "1.0.0",
+  "version": "2.2.0",
   "description": "Shopgate Connect sales tax extension",
   "repository": {
     "type": "git",
