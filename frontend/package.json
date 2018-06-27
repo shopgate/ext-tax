@@ -1,0 +1,13 @@
+{
+  "name": "@shopgate/tax",
+  "version": "2.2.1-beta.2",
+  "description": "Shopgate Connect sales tax frontend",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shopgate/ext-tax.git"
+  },
+  "license": "Apache-2.0",
+  "scripts": {
+    "lint": "eslint --ignore-path ../.gitignore --ext .js --ext .jsx ."
+  }
+}
