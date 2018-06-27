@@ -1,6 +1,17 @@
 {
-  "version": "2.2.0",
+  "version": "2.2.1-beta.1",
   "id": "@shopgate/tax",
   "configuration": {},
-  "components": []
+  "components": [
+    {
+      "id": "en-US",
+      "path": "frontend/locale/en-US.json",
+      "type": "translations"
+    },
+    {
+      "id": "de-DE",
+      "path": "frontend/locale/de-DE.json",
+      "type": "translations"
+    }
+  ]
 }
