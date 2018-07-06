@@ -17,16 +17,11 @@
 module.exports = async (context, input) => {
   const totals = input.totals
 
-  const discounts = totals.find(total => total.id === 'discounts')
+  /** @type {Object} */
   const subTotal = totals.find(total => total.id === 'subtotal')
 
-  let beforeTaxes = subTotal.amount
-  if (discounts) {
-    beforeTaxes -= discounts.amount
-  }
-
   const taxRate = 19
-  const taxAmount = Math.round(beforeTaxes * taxRate) / 100
+  const taxAmount = Math.round(subTotal.amount * taxRate) / 100
 
   totals.push({
     id: 'tax',
